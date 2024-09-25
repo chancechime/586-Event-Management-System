@@ -54,4 +54,4 @@ Core functions include ticket purchasing, QR code generation, user registration,
 
 ## Implementation
 
-The system will be built using C# and .NET for the back-end, with a cloud database for user and event data. The front-end will utilize React or Angular for a responsive experience, incorporating APIs for QR code generation.
+The system will be built using Flask for the back-end, with a cloud database for user and event data. The front-end will utilize HTML & Flask for a responsive experience, incorporating APIs for QR code generation.
