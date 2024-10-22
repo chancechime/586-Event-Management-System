@@ -1,7 +1,7 @@
 # Note: Import send_file, qrcode
-from website import create_app
+from flask import Flask, send_file
 
-app = create_app()
+app = Flask(__name__)
 
 if __name__ == '__main__':
     app.run(debug=True)
