@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Management System - Login Page</title>
+    <!-- <link rel="stylesheet" href="loginstyles.css" /> TODO: Add CSS styling -->
+  </head>
+  <body>
+    <header>Login Page</header>
+    <main>
+      <form action="/register" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required /> <br><br>
+        <button type="submit">Login</button>
+        <a href="/register"><button type="button">Register</button></a>
+      </form>
+    </main>
+    <footer>
+      <p>&copy; 2024 Event Management System. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

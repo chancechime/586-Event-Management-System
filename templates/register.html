@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Management System - Register Page</title>
+    <!-- <link rel="stylesheet" href="registerstyles.css" /> TODO: Add CSS styling -->
+</head>
+<body>
+    <h1>Register Page</h1>
+    <main>
+        <form action="/register" method="POST">
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name" required /><br>
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="last_name" required /><br>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required /><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required /><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required /><br>
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" id="confirm_password" name="confirm_password" required /><br>
+            <button type="submit">Register</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 Event Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>
