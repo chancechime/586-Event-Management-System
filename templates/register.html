@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Event Management System - Register Page</title>
-    <!-- <link rel="stylesheet" href="registerstyles.css" /> TODO: Add CSS styling -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='templates.css') }}">
 </head>
 <body>
-    <h1>Register Page</h1>
+    <header><h3>Register Page</h3></header>
     <main>
         <form action="/register" method="POST">
             <label for="first_name">First Name:</label>
@@ -23,6 +23,7 @@
             <label for="confirm_password">Confirm Password:</label>
             <input type="password" id="confirm_password" name="confirm_password" required /><br>
             <button type="submit">Register</button>
+            <button type="back" onclick="window.location.href='/login'">Back To Login</button>
         </form>
     </main>
     <footer>

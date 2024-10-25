@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Event Management System - Tickets Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='templates.css') }}">
+</head>
+<body>
+    <header>Tickets Page</header>
+    <main>
+        <form action="/tickets" method="POST">
+            <label for="event">Event:</label>
+            <input type="text" id="event" name="event" required/>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" required/><br><br>
+            <button type="submit">Buy Tickets</button>
+        </form>
+        
+        <!-- Display the generated QR code -->
+        <img src="{{ url_for('static', filename='images/ticket.png') }}" alt="Tickets" width="300" height="200"/>
+    </main>
+    <footer>
+        <p>&copy; 2024 Event Management System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

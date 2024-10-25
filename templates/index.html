@@ -2,24 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Management System</title>
-    <!-- <link rel="stylesheet" href="indexstyles.css"> TODO: Add CSS styling -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='templates.css') }}">
 </head>
 <body>
     <header>
         <h1>Welcome to the Event Management System</h1>
-        <nav>
+        <nav id="main-nav">
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#events">Events</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="/login">Login</a></li>
+            <li><a style="text-decoration: none" href="#home"><b>Home</b></a></li>
+            <li><a style="text-decoration: none" href="#about"><b>About</b></a></li>
+            <br>
+            <li><a style="text-decoration: none" href="#events"><b>Events</b></a></li>
+            <li><a style="text-decoration: none" href="/tickets"><b>My Tickets</b></a></li>
+            <br>
+            <li><a style="text-decoration: none" href="#contact"><b>Contact</b></a></li>
+            <li><a style="text-decoration: none" href="/login"><b>Login</b></a></li>
             </ul>
         </nav>
     </header>
-    <main>
+    <main id="content">
         <section id="home">
             <h2>Home</h2>
             <p>Book tickets for concerts and other shows effortlessly with our system.</p>
