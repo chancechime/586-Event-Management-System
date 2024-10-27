@@ -18,10 +18,14 @@
         </form>
         
         <!-- Display the generated QR code -->
-        <img src="{{ url_for('static', filename='images/ticket.png') }}" alt="Tickets" width="300" height="200"/>
+        {% if qr_data %}
+            <h2>Your Ticket QR Code:</h2>
+            {{ qrcode(qr_data) }}
+        {% endif %}
     </main>
     <footer>
         <p>&copy; 2024 Event Management System. All rights reserved.</p>
     </footer>
 </body>
 </html>
+    
