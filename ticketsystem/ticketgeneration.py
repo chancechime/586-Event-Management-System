@@ -1,5 +1,5 @@
+import flask_qrcode import QRcode as qr
 from flask import Flask, render_template, request
-from flask_qrcode import QRcode
 from AWS import AWS
 
 app = Flask(__name__)
