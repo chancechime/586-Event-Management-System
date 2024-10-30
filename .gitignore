@@ -1,6 +1,6 @@
 .cache
-.DS_Sore
 .coverage
+.DS_Sore
 .idea/
 .installed.cfg
 .project
@@ -33,6 +33,7 @@ develop-eggs/
 dist/
 docs/_build/
 eggs/
+flask_session/
 lib/
 lib64/
 nosetests.xml
@@ -40,5 +41,5 @@ parts/
 pip-delete-this-directory.txt
 pip-log.txt
 sdist/
+static/images/ticketqrcode.png
 var/
-flask_session/
