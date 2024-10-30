@@ -1,7 +1,6 @@
-from flask import Flask, render_template, request, flash, redirect, url_for
+from quick_imports import *
 import bcrypt
 import re
-from AWS import AWS
 
 app = Flask(__name__)
 

@@ -1,46 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
     <title>Event Management System</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='templates.css') }}">
-</head>
-<body>
+    {% include 'head.html' %}
+  </head>
+  <body>
     <header>
-        <h1>Welcome to the Event Management System</h1>
-        <nav id="main-nav">
-            <ul>
-            <li><a style="text-decoration: none" href="#home"><b>Home</b></a></li>
-            <li><a style="text-decoration: none" href="#about"><b>About</b></a></li>
-            <br>
-            <li><a style="text-decoration: none" href="#events"><b>Events</b></a></li>
-            <li><a style="text-decoration: none" href="/tickets"><b>My Tickets</b></a></li>
-            <br>
-            <li><a style="text-decoration: none" href="#contact"><b>Contact</b></a></li>
-            <li><a style="text-decoration: none" href="/login"><b>Login</b></a></li>
-            </ul>
-        </nav>
+      <h1>Welcome to the Event Management System</h1>
+      <nav id="main-nav">
+        <ul>
+          <li>
+            <a style="text-decoration: none" href="#home"><b>Home</b></a>
+          </li>
+          <li>
+            <a style="text-decoration: none" href="#about"><b>About</b></a>
+          </li>
+          <br />
+          <li>
+            <a style="text-decoration: none" href="#events"><b>Events</b></a>
+          </li>
+          <li>
+            <a style="text-decoration: none" href="/tickets"
+              ><b>My Tickets</b></a
+            >
+          </li>
+          <br />
+          <li>
+            <a style="text-decoration: none" href="#contact"><b>Contact</b></a>
+          </li>
+          <li>
+            {% if False %} <!-- If user is logged in, display My Account & Log Out -->
+              <a style="text-decoration: none" href="/account"><b>My Account</b></a>
+              <li>
+              <a style="text-decoration: none" href="/logout"
+              ><b>Log Out</b></a></li>
+            {% else %} <!-- If user is not logged in, display Sign Up & Log In -->
+              <a style="text-decoration: none" href="/login"><b>Login</b></a>
+            {% endif %}
+          </li>
+        </ul>
+      </nav>
     </header>
     <main id="content">
-        <section id="home">
-            <h2>Home</h2>
-            <p>Book tickets for concerts and other shows effortlessly with our system.</p>
-        </section>
-        <section id="about">
-            <h2>About</h2>
-            <p>Discover how our event management system can simplify your ticket booking experience.</p>
-        </section>
-        <section id="events">
-            <h2>Events</h2>
-            <p>Explore upcoming concerts and shows, and book your tickets now.</p>
-        </section>
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Reach out to us for any inquiries or support regarding ticket bookings.</p>
-        </section>
+      <section id="home">
+        <h2>Home</h2>
+        <p>
+          Book tickets for concerts and other shows effortlessly with our
+          system.
+        </p>
+      </section>
+      <section id="about">
+        <h2>About</h2>
+        <p>
+          Discover how our event management system can simplify your ticket
+          booking experience.
+        </p>
+      </section>
+      <section id="events">
+        <h2>Events</h2>
+        <p>Explore upcoming concerts and shows, and book your tickets now.</p>
+      </section>
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>
+          Reach out to us for any inquiries or support regarding ticket
+          bookings.
+        </p>
+      </section>
     </main>
     <footer>
-        <p>&copy; 2024 Event Management System. All rights reserved.</p>
+      {% include 'footer.html' %}
     </footer>
-</body>
+  </body>
 </html>

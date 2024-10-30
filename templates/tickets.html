@@ -1,31 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Event Management System - Tickets Page</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='templates.css') }}">
-</head>
-<body>
+  <head>
+    <title>Event Management System - Ticket Page</title>
+    {% include 'head.html' %}
+  </head>
+  <body>
     <header>Tickets Page</header>
+    <!-- TODO: Ticket Purchase should be in Events, and Tickets should only hold the user's purchase tickets. Page is for Viewing, Scanning, Trading/Selling, and Refunding Tickets. -->
     <main>
-        <form action="/tickets" method="POST">
-            <label for="event">Event:</label>
-            <input type="text" id="event" name="event" required/>
-            <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="quantity" required/><br><br>
-            <button type="submit">Buy Tickets</button>
-        </form>
-        
-        <!-- Display the generated QR code -->
-        {% if qr_data %}
-            <h2>Your Ticket QR Code:</h2>
-            {{ qrcode(qr_data) }}
-        {% endif %}
+      <form action="/tickets" method="POST">
+        <label for="event">Event:</label>
+        <input type="text" id="event" name="event" required />
+        <label for="quantity">Quantity:</label>
+        <input
+          type="number"
+          id="quantity"
+          name="quantity"
+          required
+        /><br /><br />
+        <button type="submit">Buy Tickets</button>
+        <button type="back" onclick="window.location.href='/'">
+          Back To Home Page
+        </button>
+      </form>
+
+      <!-- Display the generated QR code -->
+      {% if qr_data %}
+      <section id="qr-code-section">
+        <br/>
+        <p>
+          Your ticket has been successfully generated. Scan the QR code below to
+          access your ticket.
+        </p>
+        <p>Make sure to present this QR code at the event venue for entry.</p>
+        <p>Thank you for booking with us!</p>
+        <br />
+        <section id="qrcode">
+          <h2>Your Ticket QR Code:</h2>
+          <img class="qr-code" src="{{ qr_data }}" alt="Your Ticket QR Code" />
+        </section>
+      </section>
+      {% endif %}
     </main>
     <footer>
-        <p>&copy; 2024 Event Management System. All rights reserved.</p>
+      {% include 'footer.html' %}
     </footer>
-</body>
+  </body>
 </html>
-    
