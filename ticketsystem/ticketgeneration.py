@@ -1,6 +1,4 @@
-from flask import Flask, render_template, request
-import qrcode
-from AWS import AWS
+from quick_imports import *
 
 def ticketgeneration():
     try:

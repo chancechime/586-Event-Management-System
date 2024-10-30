@@ -41,3 +41,4 @@ pip-delete-this-directory.txt
 pip-log.txt
 sdist/
 var/
+flask_session/
