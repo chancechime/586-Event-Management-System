@@ -7,39 +7,7 @@
   <body>
     <header>
       <h1>Welcome to the Event Management System</h1>
-      <nav id="main-nav">
-        <ul>
-          <li>
-            <a style="text-decoration: none" href="#home"><b>Home</b></a>
-          </li>
-          <li>
-            <a style="text-decoration: none" href="#about"><b>About</b></a>
-          </li>
-          <br />
-          <li>
-            <a style="text-decoration: none" href="#events"><b>Events</b></a>
-          </li>
-          <li>
-            <a style="text-decoration: none" href="/tickets"
-              ><b>My Tickets</b></a
-            >
-          </li>
-          <br />
-          <li>
-            <a style="text-decoration: none" href="#contact"><b>Contact</b></a>
-          </li>
-          <li>
-            {% if False %} <!-- If user is logged in, display My Account & Log Out -->
-              <a style="text-decoration: none" href="/account"><b>My Account</b></a>
-              <li>
-              <a style="text-decoration: none" href="/logout"
-              ><b>Log Out</b></a></li>
-            {% else %} <!-- If user is not logged in, display Sign Up & Log In -->
-              <a style="text-decoration: none" href="/login"><b>Login</b></a>
-            {% endif %}
-          </li>
-        </ul>
-      </nav>
+      {% include 'navbar.html' %}
     </header>
     <main id="content">
       <section id="home">

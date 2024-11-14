@@ -5,7 +5,10 @@
     {% include 'head.html' %}
   </head>
   <body>
-    <header><h3>Register Page</h3></header>
+    <header>
+      <h3>Register Page</h3>
+      {% include 'navbar.html' %}
+    </header>
     <main>
       <form action="/register" method="POST">
         <label for="first_name">First Name:</label>

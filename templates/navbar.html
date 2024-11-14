@@ -1,0 +1,19 @@
+<nav id="nav-bar">
+    <div>
+        <a style="text-decoration: none" href="/"><b>Home</b></a>
+        <br /><br />
+        <a style="text-decoration: none" href="/events"><b>Events</b></a>
+        <a> | </a>
+        <a style="text-decoration: none" href="/tickets"><b>My Tickets</b></a>
+        <br /><br />
+        <a style="text-decoration: none" href="/contact"><b>Contact</b></a>
+        <a> | </a>
+        {% if True %} <!-- If user is logged in, display My Account & Log Out -->
+            <a style="text-decoration: none" href="/account"><b>My Account</b></a>
+            <a> | </a>
+            <a style="text-decoration: none" href="/logout"><b>Log Out</b></a>
+        {% else %} <!-- If user is not logged in, display Sign Up & Log In -->
+            <a style="text-decoration: none" href="/login"><b>Login</b></a>
+        {% endif %}
+    </div>
+</nav>

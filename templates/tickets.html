@@ -5,7 +5,10 @@
     {% include 'head.html' %}
   </head>
   <body>
-    <header>Tickets Page</header>
+    <header>
+      <h1>Tickets Page</h1>
+      {% include 'navbar.html' %}
+    </header>
     <!-- TODO: Ticket Purchase should be in Events, and Tickets should only hold the user's purchase tickets. Page is for Viewing, Scanning, Trading/Selling, and Refunding Tickets. -->
     <main>
       <form action="/tickets" method="POST">
@@ -19,9 +22,6 @@
           required
         /><br /><br />
         <button type="submit">Buy Tickets</button>
-        <button type="back" onclick="window.location.href='/'">
-          Back To Home Page
-        </button>
       </form>
 
       <!-- Display the generated QR code -->
