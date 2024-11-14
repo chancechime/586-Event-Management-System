@@ -28,7 +28,7 @@
 }
 
 body {
-    background: linear-gradient(45deg, rgba(68, 68, 68, 0.75) 0%, rgba(192, 0, 0, 0) 80%), url("/static/images/mainbackground-crowd.jpg");
+    background: linear-gradient(45deg, rgba(68, 68, 68, 0.95) 0%, rgba(192, 0, 0, 0) 80%), url("/static/images/mainbackground-crowd.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
