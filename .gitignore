@@ -42,3 +42,8 @@ sdist/
 var/
 .venv/
 586/
+uml/
+*.png
+*.jar
+flask_session/*
+*/__init__.py
