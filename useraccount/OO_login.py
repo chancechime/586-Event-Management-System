@@ -6,8 +6,9 @@ class UserAuthentication:
     """
     Handles user authentication logic, including login, password validation, and key press events.
     """
-    def __init__(self, database):
-        self.database = database
+    def __init__(self):
+       # self.database = database
+        pass
 
     def login(self):
         """
@@ -29,23 +30,23 @@ class UserAuthentication:
         flash(connection, 'info')
         return render_template('login.html')
 
-    def check_password(self, username, password):
-        """
-        Validates the user's password by comparing it to the stored hashed password.
-        """
-        try:
-            user_data = self.database.get_users(username)
-            if user_data and 'hashedpassword' in user_data:
-                hashed_pw = user_data['hashedpassword']
-                if bcrypt.checkpw(password.encode('utf-8'), hashed_pw.encode('utf-8')):
-                    return True
-                else:
-                    print("Invalid Password")
-            else:
-                print("User not found")
-        except Exception as e:
-            print(f"Error in check_password: {e}")
-        return False
+    # def check_password(self, username, password):
+    #     """
+    #     Validates the user's password by comparing it to the stored hashed password.
+    #     """
+    #     try:
+    #         user_data = self.database.get_users(username)
+    #         if user_data and 'hashedpassword' in user_data:
+    #             hashed_pw = user_data['hashedpassword']
+    #             if bcrypt.checkpw(password.encode('utf-8'), hashed_pw.encode('utf-8')):
+    #                 return True
+    #             else:
+    #                 print("Invalid Password")
+    #         else:
+    #             print("User not found")
+    #     except Exception as e:
+    #         print(f"Error in check_password: {e}")
+    #     return False
 
     def register(self):
         """
