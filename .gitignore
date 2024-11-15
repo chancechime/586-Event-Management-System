@@ -43,3 +43,10 @@ pip-log.txt
 sdist/
 static/images/ticketqrcode.png
 var/
+*.jar
+uml/
+*.dot 
+*.png
+__init__.py
+.png
+static/images/ticketqrcode.png

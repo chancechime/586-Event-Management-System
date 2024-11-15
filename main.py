@@ -1,6 +1,7 @@
 from quick_imports import *
-from ticketsystem.ticketgeneration import ticketgeneration
-from useraccount.login import login
+#from ticketsystem.ticketgeneration import ticketgeneration
+from ticketsystem.ticket_generation import TicketGenerator
+from useraccount.OO_login import login
 from useraccount.register import register
 
 #Database = AWS()
@@ -52,7 +53,8 @@ def tickets():
         os.remove('static/images/ticketqrcode.png')
         print("\nDeleted existing QR code image\n")
     if request.method == 'POST':
-        return ticketgeneration()
+        ticket_generator = TicketGenerator()
+        return ticket_generator.generate_ticket()
     print("Showing the tickets page")
     return render_template('tickets.html')
 
