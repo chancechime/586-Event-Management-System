@@ -1,7 +1,48 @@
-*{
+/* *{
     color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+.navbar .logo {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar .menu {
+    display: flex;
+    gap: 15px;
+}
+
+.navbar .menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar .menu a:hover {
+    background-color: #575757;
+}
+
+.navbar .menu .logout {
+    color: #ff6666;
+}
+
+.navbar .menu .login {
+    color: #66ccff;
+}
+
 
 #nav-bar{
     background-color: rgba(0, 0, 0, 0.5);
@@ -48,7 +89,6 @@ input {
     color: black;
 }
 
-/* Tickets */
 
 .qr-code {
     border-radius: 15%;
@@ -70,5 +110,5 @@ input {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     text-align: center;
-    padding-top: 0; /* Ensure no padding at the top */
-}
+    padding-top: 0; 
+} */

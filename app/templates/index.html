@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Tickets</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to EventMaster</h1>
+    </header>
+    <main>
+        <h2>Upcoming Events</h2>
+        <div class="events-list">
+            <!-- Sample Event -->
+            <div class="event">
+                <img src="{{ url_for('static', filename='images/event1.jpg') }}" alt="Event Image">
+                <h3>Event 1</h3>
+                <p>Date: October 12, 2024</p>
+                <a href="/event/1">View Details</a>
+            </div>
+            <!-- More events can be added similarly -->
+        </div>
+    </main>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

@@ -1,19 +1,36 @@
-<nav id="nav-bar">
-    <div>
-        <a style="text-decoration: none" href="/"><b>Home</b></a>
-        <br /><br />
-        <a style="text-decoration: none" href="/events"><b>Events</b></a>
-        <a> | </a>
-        <a style="text-decoration: none" href="/tickets"><b>My Tickets</b></a>
-        <br /><br />
-        <a style="text-decoration: none" href="/contact"><b>Contact</b></a>
-        <a> | </a>
-        {% if True %} <!-- If user is logged in, display My Account & Log Out -->
-            <a style="text-decoration: none" href="/account"><b>My Account</b></a>
-            <a> | </a>
-            <a style="text-decoration: none" href="/logout"><b>Log Out</b></a>
-        {% else %} <!-- If user is not logged in, display Sign Up & Log In -->
-            <a style="text-decoration: none" href="/login"><b>Login</b></a>
-        {% endif %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('index') }}">My App</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('events_dashboard') }}">Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('tickets') }}">My Tickets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+                </li>
+                {% if session.get('username') %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('account') }}">My Account</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-danger" href="{{ url_for('logout') }}">Log Out</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" href="{{ url_for('login') }}">Login</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
     </div>
 </nav>
