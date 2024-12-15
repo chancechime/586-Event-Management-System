@@ -1,9 +1,11 @@
 from quick_imports import *
 import bcrypt
 import re
+import pymssql
 
 app = Flask(__name__)
-
+conn = pymssql.connect(server='ems.cp084oyu2d47.us-west-1.rds.amazonaws.com', user='admin', password='PASSWORD', database='ems')
+cursor = conn.cursor()
 # Register Page
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -12,6 +14,7 @@ def register():
         last_name = request.form['last_name']
         username = request.form['username']
         email = request.form['email']
+        print("password"+request.form['password'])
         password = request.form['password']
         confirm_password = request.form['confirm_password']
         
@@ -22,7 +25,7 @@ def register():
         elif not is_valid_email(email):
             flash("Invalid email.")
     hashed_password = hash_password(password)
-    register_user(username, hashed_password, first_name, last_name, email)
+    register_user(username, password, first_name, last_name, email)
 
 @app.route('/keyPressEvent', methods=['POST'])
 def key_press_event():
@@ -43,16 +46,19 @@ def register_user(username, hashed_password, first_name, last_name, email):
         return
     
     try:
-        response = AWS().register_user(username, hashed_password, first_name, last_name, email)
+        cursor2 = Database()
+
+        query= "INSERT INTO user_credentials (username, hashed_password, first_name, last_name, email) VALUES ('"+ username +"','"+ hashed_password +"','"+ first_name +"','"+ last_name + "','"+ email +"')"
+        print(query)
+        cursor.execute(query)
+        conn.commit()
+        print("here")
+        # flash("User registered successfully.")
         
-        if response:
-            flash("User registered successfully.")
-            return render_template('login.html')
-        else:
-            flash("Failed to register user.")
     except Exception as e:
         flash("Failed to register user.")
         print(e)
+    return render_template('login.html')
 
 def cancel_button_clicked():
     return render_template('login.html')

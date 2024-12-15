@@ -50,3 +50,4 @@ uml/
 __init__.py
 .png
 static/images/ticketqrcode.png
+app
