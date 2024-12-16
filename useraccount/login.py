@@ -3,15 +3,21 @@ import bcrypt
 import re
 
 def login():
-    username = request.form['username']
-    password = request.form['password']
-    checkpw(username, password)
-    
-    # Checks if user is in the database
-    connection = "Login Successful" if username in AWS().get_users else "Login Failed. Please try again."
-    print(connection) # Output: Login Successful if user is in the database, else Login Failed. Please try again.
-    flash(connection, 'info')
-    #return render_template('login.html')
+    username = request.form.get('username')  # Use .get() to avoid KeyError
+    password = request.form.get('password')
+
+    if not username or not password:
+        flash("Username and password are required.", "danger")
+        return redirect(url_for('login'))  # Redirect back to login page
+
+    if checkpw(username, password):
+        session['username'] = username
+        flash("Login successful!", "success")
+        return redirect(url_for('index'))  # Redirect to home page on success
+    else:
+        flash("Invalid credentials. Please try again.", "danger")
+        return redirect(url_for('login'))
+
     
 
 def checkpw(username, password):

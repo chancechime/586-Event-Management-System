@@ -1,7 +1,8 @@
 from quick_imports import *
 import bcrypt
 from flask import request, flash, render_template
-
+import boto3
+from botocore.exceptions import ClientError
 class UserAuthentication:
     """
     Handles user authentication logic, including login, password validation, and key press events.
@@ -29,24 +30,34 @@ class UserAuthentication:
         print(connection)  # Debugging output
         flash(connection, 'info')
         return render_template('login.html')
+    
+    def get_secret(self,username):
+        secret_name = username
+        region_name = "us-west-1"
 
-    # def check_password(self, username, password):
-    #     """
-    #     Validates the user's password by comparing it to the stored hashed password.
-    #     """
-    #     try:
-    #         user_data = self.database.get_users(username)
-    #         if user_data and 'hashedpassword' in user_data:
-    #             hashed_pw = user_data['hashedpassword']
-    #             if bcrypt.checkpw(password.encode('utf-8'), hashed_pw.encode('utf-8')):
-    #                 return True
-    #             else:
-    #                 print("Invalid Password")
-    #         else:
-    #             print("User not found")
-    #     except Exception as e:
-    #         print(f"Error in check_password: {e}")
-    #     return False
+    # Create a Secrets Manager client
+        session = boto3.session.Session()
+        client = session.client(
+            service_name='secretsmanager',
+            region_name=region_name
+        )
+
+        try:
+            get_secret_value_response = client.get_secret_value(
+                SecretId=secret_name
+            )
+        except ClientError as e:
+            # For a list of exceptions thrown, see
+            # https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html
+            raise e
+
+        secret = get_secret_value_response['SecretString']
+    def check_password(self, username, password):
+        aws_password = self.get_secret(username)
+        if not aws_password:
+            return False
+        return bcrypt.checkpw(password.encode('utf-8'), aws_password.encode('utf-8'))
+  
 
     def register(self):
         """

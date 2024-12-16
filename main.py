@@ -125,13 +125,17 @@ class UserHandler(BaseHandler):
 
         @self.app.route('/login', methods=['GET', 'POST'])
         def login():
-            return self.auth_handler.login()
+            return render_template('login.html')
 
         @self.app.route('/register')
         def register_page():
             print("Showing the register page")
-            return register()
-
+            return render_template('register.html')
+        
+        @self.app.route('/register_user', methods=['POST'])
+        def register_user():
+            register()
+            return redirect(url_for('login'))
 
 class Application:
     """

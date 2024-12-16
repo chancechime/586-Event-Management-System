@@ -1,27 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Event Management System - Login Page</title>
-    {% include 'head.html' %}  
-  </head>
-  <body>
-    <header>
-      <h3>Login Page</h3>
-      {% include 'navbar.html' %}
-    </header>
-    <main>
-      <form action="/register" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required />
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required /> <br><br>
-        <button type="submit">Login</button>
-        <a href="/register"><button type="button">Register</button></a>
-        <button type="homepage" onclick="window.location.href='/'">Back To Home Page</button>
-      </form>
-    </main>
-    <footer>
-      {% include 'footer.html' %}
-    </footer>
-  </body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<main class="d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow-lg p-4 border-0 rounded" style="width: 400px;">
+        <h3 class="text-center mb-4">Login</h3>
+        <form action="/login" method="POST">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" required />
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required />
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-dark">Login</button>
+                <a href="/register" class="btn btn-outline-secondary">Register</a>
+                <a href="/" class="btn btn-link text-decoration-none">Back to Home</a>
+            </div>
+        </form>
+    </div>
+</main>
+{% endblock %}

@@ -1,49 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Event Management System - Ticket Page</title>
-    {% include 'head.html' %}
-  </head>
-  <body>
-    <header>
-      <h1>Tickets Page</h1>
-      {% include 'navbar.html' %}
-    </header>
-    <!-- TODO: Ticket Purchase should be in Events, and Tickets should only hold the user's purchase tickets. Page is for Viewing, Scanning, Trading/Selling, and Refunding Tickets. -->
-    <main>
-      <form action="/tickets" method="POST">
-        <label for="event">Event:</label>
-        <input type="text" id="event" name="event" required />
-        <label for="quantity">Quantity:</label>
-        <input
-          type="number"
-          id="quantity"
-          name="quantity"
-          required
-        /><br /><br />
-        <button type="submit">Buy Tickets</button>
-      </form>
+{% extends 'base.html' %}
 
-      <!-- Display the generated QR code -->
-      {% if qr_data %}
-      <section id="qr-code-section">
-        <br/>
-        <p>
-          Your ticket has been successfully generated. Scan the QR code below to
-          access your ticket.
-        </p>
-        <p>Make sure to present this QR code at the event venue for entry.</p>
-        <p>Thank you for booking with us!</p>
-        <br />
-        <section id="qrcode">
-          <h2>Your Ticket QR Code:</h2>
-          <img class="qr-code" src="{{ qr_data }}" alt="Your Ticket QR Code" />
-        </section>
-      </section>
-      {% endif %}
-    </main>
-    <footer>
-      {% include 'footer.html' %}
-    </footer>
-  </body>
-</html>
+{% block title %}My Tickets{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <!-- Page Title -->
+    <div class="text-center mb-4">
+        <h1 class="fw-bold">My Tickets</h1>
+        <p class="text-muted">View, manage, and access your purchased tickets.</p>
+    </div>
+
+    <!-- Two-Column Layout -->
+    <div class="row g-5 justify-content-center">
+        <!-- Column 1: Purchase Tickets -->
+        <div class="col-lg-5">
+            <div class="card shadow-lg p-4 border-0">
+                <h4 class="fw-bold mb-3 text-center">🎟️ Purchase Tickets</h4>
+                <form action="/tickets" method="POST">
+                    <div class="mb-3">
+                        <label for="event" class="form-label">Event</label>
+                        <input type="text" id="event" name="event" class="form-control" placeholder="Enter event name" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="quantity" class="form-label">Quantity</label>
+                        <input type="number" id="quantity" name="quantity" class="form-control" min="1" placeholder="Enter quantity" required />
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-outline-success btn-lg">Buy Tickets</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Fill Empty Space: Suggested Events -->
+            <div class="card shadow-lg p-4 mt-4 border-0">
+                <h5 class="fw-bold text-center">Suggested Events</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">🎤 Music Fest 2024 - <a href="/events/1">Learn More</a></li>
+                    <li class="list-group-item">🎭 Theater Night - <a href="/events/2">Learn More</a></li>
+                    <li class="list-group-item">🌟 Tech Conference - <a href="/events/3">Learn More</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Column 2: Ticket Management Options -->
+        <div class="col-lg-5">
+            <!-- QR Code Section -->
+            {% if qr_data %}
+            <div class="card shadow-lg p-4 mb-5 text-center border-0">
+                <h4 class="fw-bold mb-3">Your Ticket QR Code</h4>
+                <p>Scan this QR code to access your ticket at the event venue.</p>
+                <img class="img-fluid mb-3" src="{{ qr_data }}" alt="Your Ticket QR Code" style="max-width: 200px;" />
+                <p class="text-muted">Thank you for booking with us!</p>
+            </div>
+            {% endif %}
+
+            <!-- Ticket Management Section -->
+            <div class="card text-center shadow-lg p-4 border-0 mb-4">
+                <h5 class="fw-bold">🎫 Manage My Tickets</h5>
+                <div class="row g-3">
+                    <div class="col-12">
+                        <a href="/tickets" class="btn btn-outline-info btn-lg w-100">View Tickets</a>
+                    </div>
+                    <div class="col-12">
+                        <a href="/trade-tickets" class="btn btn-outline-primary btn-lg w-100">Trade/Sell Tickets</a>
+                    </div>
+                    <div class="col-12">
+                        <a href="/refund-tickets" class="btn btn-outline-danger btn-lg w-100">Request Refund</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fill Empty Space Below: Recently Viewed Tickets -->
+            <div class="card shadow-lg p-4 border-0">
+                <h5 class="fw-bold text-center">Recently Viewed Tickets</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">#12345 - Music Fest 2024</li>
+                    <li class="list-group-item">#67890 - Theater Night</li>
+                    <li class="list-group-item">#11223 - Tech Conference</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -42,6 +42,156 @@
     z-index: 1050;
 }
 
+/* Hero Section */
+.hero {
+    position: relative;
+}
+
+.hero-overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    z-index: 1;
+}
+
+.hero-content {
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Text shadow for readability */
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #182028; 
+    border: none;
+}
+
+.btn-outline-light {
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.btn-outline-light:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Turn SVG White */
+.svg-white {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(180deg) brightness(200%);
+}
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(90deg, #1f1f1f, #3a3a3a); /* Modern gradient background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    padding: 10px 20px;
+}
+
+.navbar .navbar-brand span {
+    color: white; /* White text for brand name */
+}
+
+.navbar .nav-link {
+    color: #e0e0e0; /* Light gray text */
+    font-size: 16px;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.navbar .nav-link:hover {
+    color: #66c2ff; /* Light blue on hover */
+    transform: translateY(-2px); /* Slight lift */
+}
+
+.navbar .nav-link.logout {
+    color: #ff7b7b; /* Reddish color for Log Out */
+}
+
+.navbar .nav-link.login {
+    color: #66c2ff; /* Light blue for Login */
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.3); /* Transparent border for toggle button */
+}
+
+.navbar-toggler-icon {
+    filter: invert(1); /* White toggle icon */
+}
+
+/* Carousel Cards */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons in Cards */
+.card .btn {
+    border-radius: 20px;
+    font-size: 14px;
+    padding: 6px 12px;
+}
+
+/* Carousel Controls */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1); /* Makes controls white for better visibility */
+}
+
+/* General Carousel Styling */
+.carousel-inner {
+    background-color: #fff;
+    border-radius: 12px;
+}
+
+/* Event Page Styling */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+
+
 /* *{
     color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;

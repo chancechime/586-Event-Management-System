@@ -1,18 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Event Management System - Events</title>
-    {% include 'head.html' %}
-</head>
-<body>
-    <header>
-        <h1>Events Page</h1>
-        {% include 'navbar.html' %}
-    </header>
-    <main>
-    </main>
-    <footer>
-        {% include 'footer.html' %}
-    </footer>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Events{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center mb-4 fw-bold">Upcoming Events</h1>
+
+    <!-- Event Cards Row -->
+    <div class="row g-4">
+        <!-- Event 1 -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow border-0">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">🎶 Music Fest 2024</h5>
+                    <p class="card-text text-muted">
+                        Join us for an unforgettable night of live music with top bands and artists.
+                    </p>
+                    <p><strong>Date:</strong> March 15, 2024</p>
+                    <p><strong>Location:</strong> Central Park</p>
+                    <a href="{{ url_for('event_details', event='musicfest2024') }}" class="btn btn-primary w-100">View Details</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Event 2 -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow border-0">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">🎭 Theater Night</h5>
+                    <p class="card-text text-muted">
+                        Experience the best of drama and storytelling with award-winning plays.
+                    </p>
+                    <p><strong>Date:</strong> April 2, 2024</p>
+                    <p><strong>Location:</strong> Grand Theater</p>
+                    <a href="{{ url_for('event_details', event='theaternight2024') }}" class="btn btn-primary w-100">View Details</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Event 3 -->
+        <div class="col-md-4">
+            <div class="card h-100 shadow border-0">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">🌟 Tech Conference</h5>
+                    <p class="card-text text-muted">
+                        Discover innovations and network with top leaders in the tech industry.
+                    </p>
+                    <p><strong>Date:</strong> May 10, 2024</p>
+                    <p><strong>Location:</strong> Tech Hub Arena</p>
+                    <a href="{{ url_for('event_details', event='techconf2024') }}" class="btn btn-primary w-100">View Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -6,8 +6,8 @@ function hideSpinner() {
     document.getElementById('spinner').classList.add('d-none');
 }
 
-// Example usage: Show spinner for 3 seconds on page load
+// Example usage: Show spinner for 1.0 seconds on page load
 document.addEventListener('DOMContentLoaded', () => {
     showSpinner();
-    setTimeout(hideSpinner, 3000);
+    setTimeout(hideSpinner, 1000);
 });
