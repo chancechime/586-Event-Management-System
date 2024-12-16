@@ -3,10 +3,41 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<div class="container text-center my-5">
-    <h1 class="display-4">Welcome to My App</h1>
-    <p class="lead">Your one-stop platform for managing events and tickets effortlessly.</p>
-    <a href="{{ url_for('events_dashboard') }}" class="btn btn-primary btn-lg">Explore Events</a>
-    <a href="{{ url_for('tickets') }}" class="btn btn-outline-secondary btn-lg">View My Tickets</a>
+<div class="hero text-center text-white d-flex align-items-center justify-content-center" style="height: 100vh; background: url('{{ url_for('static', filename='images/mainbackground-crowd.jpg') }}') center/cover no-repeat;">
+    <div class="hero-content">
+        <h1 class="display-3">Welcome to My App</h1>
+        <p class="lead">Discover events, manage your tickets, and explore a seamless experience.</p>
+        <a href="{{ url_for('events_dashboard') }}" class="btn btn-primary btn-lg me-2">Explore Events</a>
+        <a href="{{ url_for('tickets') }}" class="btn btn-outline-light btn-lg">View My Tickets</a>
+    </div>
 </div>
+<div id="carouselExample" class="carousel slide my-5" data-bs-ride="carousel">
+  <div class="carousel-inner">
+      <div class="carousel-item active">
+          <div class="d-flex justify-content-center align-items-center" style="height: 200px; background-color: #f8f9fa;">
+              <h4>Welcome to My App: Explore our events and tickets!</h4>
+          </div>
+      </div>
+      <div class="carousel-item">
+          <div class="d-flex justify-content-center align-items-center" style="height: 200px; background-color: #e9ecef;">
+              <h4>Discover trending events happening now.</h4>
+          </div>
+      </div>
+      <div class="carousel-item">
+          <div class="d-flex justify-content-center align-items-center" style="height: 200px; background-color: #f8f9fa;">
+              <h4>Don't miss out on early-bird discounts for tickets.</h4>
+          </div>
+      </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
 {% endblock %}
+
