@@ -3,7 +3,6 @@ from ticketsystem.ticket_generation import TicketGenerator
 from useraccount.OO_login import UserAuthentication
 from useraccount.register import register
 from flask import Flask, render_template, request, redirect, url_for, session, flash
-from AWS import AWS
 
 class BaseHandler:
     """
