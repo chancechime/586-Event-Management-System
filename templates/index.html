@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="hero text-center d-flex align-items-center justify-content-center position-relative" style="height: 100vh;">
+  <!-- Background Image with Dark Overlay -->
+  <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100" style="
+      background: url('{{ url_for('static', filename='images/mainbackground-crowd.jpg') }}') center/cover no-repeat;
+      filter: brightness(50%);
+  "></div>
+
+  <!-- Content -->
+  <div class="hero-content position-relative text-white">
+      <h1 class="display-3 fw-bold">Event Management System</h1>
+      <p class="lead">Discover events, manage your tickets, and enjoy an unforgettable experience.</p>
+      <a href="{{ url_for('events_dashboard') }}" class="btn btn-outline-light btn-lg me-2">Explore Events</a>
+      <a href="{{ url_for('tickets') }}" class="btn btn-outline-light btn-lg">View My Tickets</a>
+  </div>
+</div>
+
+<div id="carouselExample" class="carousel slide my-5" data-bs-ride="carousel">
+  <div class="carousel-inner">
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+          <div class="d-flex align-items-center justify-content-center" style="height: 300px;">
+              <div class="card text-center shadow-lg border-0 p-4" style="width: 80%; background-color: #f8f9fa;">
+                  <h4 class="fw-bold mb-3">🎉 Discover Amazing Events</h4>
+                  <p class="text-muted">Explore the latest events happening near you and secure your tickets today!</p>
+                  <a href="{{ url_for('events_dashboard') }}" class="btn btn-primary btn-sm mt-2">View Events</a>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+          <div class="d-flex align-items-center justify-content-center" style="height: 300px;">
+              <div class="card text-center shadow-lg border-0 p-4" style="width: 80%; background-color: #e9ecef;">
+                  <h4 class="fw-bold mb-3">🎟️ Manage Your Tickets</h4>
+                  <p class="text-muted">Track and organize your tickets effortlessly from a single dashboard.</p>
+                  <a href="{{ url_for('tickets') }}" class="btn btn-success btn-sm mt-2">Manage Tickets</a>
+              </div>
+          </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+          <div class="d-flex align-items-center justify-content-center" style="height: 300px;">
+              <div class="card text-center shadow-lg border-0 p-4" style="width: 80%; background-color: #f1f3f5;">
+                  <h4 class="fw-bold mb-3">📞 Connect With Us</h4>
+                  <p class="text-muted">Need help? Contact us anytime for support or inquiries.</p>
+                  <a href="{{ url_for('contact') }}" class="btn btn-info btn-sm mt-2">Contact Us</a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+{% endblock %}
+
