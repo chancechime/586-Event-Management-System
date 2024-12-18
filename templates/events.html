@@ -12,13 +12,13 @@
         <div class="col-md-4">
             <div class="card h-100 shadow border-0">
                 <div class="card-body">
-                    <h5 class="card-title fw-bold">🎶 Music Fest 2024</h5>
-                    <p class="card-text text-muted">
+                    <h5 class="card-title fw-bold" id="musicfest2024_name">🎶 Music Fest 2024</h5>
+                    <p class="card-text text-muted" id="musicfest2024_description">
                         Join us for an unforgettable night of live music with top bands and artists.
                     </p>
-                    <p><strong>Date:</strong> March 15, 2024</p>
-                    <p><strong>Location:</strong> Central Park</p>
-                    <a href="{{ url_for('event_details', event='musicfest2024') }}" class="btn btn-primary w-100">View Details</a>
+                    <p id="musicfest2024_date"><strong>Date:</strong> March 15, 2024</p>
+                    <p id="musicfest2024_location"><strong>Location:</strong> Central Park</p>
+                    <a href="{{ url_for('event_details', event_id='12345') }}" class="btn btn-primary w-100">View Details</a>
                 </div>
             </div>
         </div>
@@ -33,7 +33,7 @@
                     </p>
                     <p><strong>Date:</strong> April 2, 2024</p>
                     <p><strong>Location:</strong> Grand Theater</p>
-                    <a href="{{ url_for('event_details', event='theaternight2024') }}" class="btn btn-primary w-100">View Details</a>
+                    <a href="{{ url_for('event_details', event_id='67890') }}" class="btn btn-primary w-100">View Details</a>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
                     </p>
                     <p><strong>Date:</strong> May 10, 2024</p>
                     <p><strong>Location:</strong> Tech Hub Arena</p>
-                    <a href="{{ url_for('event_details', event='techconf2024') }}" class="btn btn-primary w-100">View Details</a>
+                    <a href="{{ url_for('event_details', event_id='11223') }}" class="btn btn-primary w-100">View Details</a>
                 </div>
             </div>
         </div>

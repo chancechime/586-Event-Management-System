@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Event Management System - My Account</title>
-    {% include 'head.html' %}
-  </head>
-  <body>
-    <header>
-      <h1>My Account</h1>
-      {% include 'navbar.html' %}
-    </header>
-  </body>
-  <footer>
-    {% include 'footer.html' %}
-  </footer>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}My Account{% endblock %}
+
+{% block content %}
+<main class="d-flex justify-content-center align-items-center min-vh-100 bg-light">
+  <div class="card shadow-lg p-4 border-0 rounded" style="width: 400px;">
+      <h2 class="text-center">Welcome, {{ request.user.username }}!</h2>
+  </div>
+</main>
+{% endblock %}

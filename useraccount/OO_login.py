@@ -3,6 +3,7 @@ import bcrypt
 from flask import request, flash, render_template
 import boto3
 from botocore.exceptions import ClientError
+
 class UserAuthentication:
     """
     Handles user authentication logic, including login, password validation, and key press events.
@@ -23,10 +24,12 @@ class UserAuthentication:
             return "Missing credentials", 400
 
         if self.check_password(username, password):
+            session['username'] = username
             connection = "Login Successful"
+            return render_template('index.html')
         else:
             connection = "Login Failed. Please try again."
-
+        
         print(connection)  # Debugging output
         flash(connection, 'info')
         return render_template('login.html')

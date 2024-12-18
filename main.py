@@ -2,7 +2,10 @@ from quick_imports import *
 from ticketsystem.ticket_generation import TicketGenerator
 from useraccount.OO_login import UserAuthentication
 from useraccount.register import register
+from ticketsystem.event import *
 from flask import Flask, render_template, request, redirect, url_for, session, flash
+from ticketsystem.event import EventDetails
+import json
 
 class BaseHandler:
     """
@@ -55,11 +58,33 @@ class EventHandler(BaseHandler):
             print("Showing the events page")
             return render_template('events.html')
 
-        @self.app.route('/events/<event>')
-        def event_details(event):
-            print(f"Showing the event details page for {event}")
-            return render_template('eventdetails.html')
-
+        @self.app.route('/events/<int:event_id>')
+        def event_details(event_id):
+            print(f"Showing the event details page for event #{event_id}")
+            event_details = EventDetails(event_id=event_id)
+            
+            try:
+                with open('data/events.json') as file:
+                    data = json.load(file)
+                
+                event_data = next((event for event in data['events'] if event['id'] == event_id), None)
+                
+                if event_data is None:
+                    flash("Event not found", "error")
+                    return redirect(url_for('events_dashboard'))
+                
+                event_details.populate_event(event_data)
+                
+            except FileNotFoundError:
+                flash("Error loading event details", "error")
+                return redirect(url_for('events_dashboard'))
+            except Exception as e:
+                flash(f"Error loading event details: {e}", "error")
+                return redirect(url_for('events_dashboard'))
+            
+            return render_template('eventdetails.html', event_details=event_details)
+            
+            
         @self.app.route('/events/<event>/reservation')
         def event_reservation(event):
             print(f"Showing the event reservation page for {event}")
@@ -107,12 +132,14 @@ class UserHandler(BaseHandler):
     """
     def __init__(self, app):
         super().__init__(app)
-        #Still needs to be implemented
-        self.auth_handler = UserAuthentication()
+        self.auth = UserAuthentication()
 
     def register_routes(self):
         @self.app.route('/account')
         def account():
+            if 'username' not in session:
+                flash("You need to be logged in to view this page", "error")
+                return redirect(url_for('login'))
             print("Showing the account page")
             return render_template('account.html')
 
@@ -124,6 +151,10 @@ class UserHandler(BaseHandler):
 
         @self.app.route('/login', methods=['GET', 'POST'])
         def login():
+            if request.method == 'POST':
+                print("Logging in")
+                session['username'] = request.form.get('username')
+                return self.auth.login()
             return render_template('login.html')
 
         @self.app.route('/register')
@@ -142,6 +173,7 @@ class Application:
     """
     def __init__(self):
         self.app = Flask(__name__)
+        self.app.secret_key = os.urandom(24)
         self.configure_app()
 
     def configure_app(self):

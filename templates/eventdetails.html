@@ -1,0 +1,66 @@
+{% extends 'base.html' %} {% block title %}Event Details{% endblock %} {% block
+content %}
+<div class="container my-5">
+  <!-- Page Title -->
+  <div class="text-center mb-4">
+    <h1 class="fw-bold">Event Details</h1>
+    <p class="text-muted">Learn more about the event and get your tickets.</p>
+
+  <!-- Event Details -->
+  <div class="d-grid gap-4">
+  <div class="row g-5 justify-content-center">
+    <!-- Column 1: Event Information -->
+    {% if request.path == '/events/12345' %}
+    <div class="col-lg-5 d-flex justify-content-center">
+      <div class="card shadow-lg p-4 border-0">
+        <h4 class="fw-bold mb-3 text-center">🎶 Music Fest 2024</h4>
+        <p><strong>Date:</strong> March 15, 2024</p>
+        <p><strong>Location:</strong> Central Park</p>
+        <p>
+          <strong>Description:</strong> Join us for an unforgettable night of
+          live music with top bands and artists.
+        </p>
+      </div>
+    </div>
+    {% elif request.path == '/events/67890' %}
+    <div class="col-lg-5 d-flex justify-content-center">
+      <div class="card shadow-lg p-4 border-0">
+        <h4 class="fw-bold mb-3 text-center">🎭 Theater Night</h4>
+        <p><strong>Date:</strong> April 2, 2024</p>
+        <p><strong>Location:</strong> Grand Theater</p>
+        <p>
+          <strong>Description:</strong> Experience the best of drama and
+          storytelling with award-winning plays.
+        </p>
+      </div>
+    </div>
+    {% elif request.path == '/events/11223' %}
+    <div class="col-lg-5 d-flex justify-content-center">
+      <div class="card shadow-lg p-4 border-0">
+        <h4 class="fw-bold mb-3 text-center">🌟 Tech Conference</h4>
+        <p><strong>Date:</strong> May 10, 2024</p>
+        <p><strong>Location:</strong> Tech Hub Arena</p>
+        <p>
+          <strong>Description:</strong> Discover innovations and network with
+          top leaders in the tech industry.
+        </p>
+      </div>
+    </div>
+    {% else %}
+    <div class="col-lg-5 d-flex justify-content-center">
+      <div class="card shadow-lg p-4 border-0">
+        <h4 class="fw-bold mb-3 text-center">📅 Event Information</h4>
+        <p><strong>Date:</strong> January 1, 2000</p>
+        <p><strong>Location:</strong> USA</p>
+        <p><strong>Description:</strong> Welcome to our page.</p>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  <div class="d-grid gap-2">
+    <a href="/tickets" class="btn btn-outline-success w-20">Buy Tickets</a>
+    <a href="/events" class="btn btn-outline-secondary w-20">Back to Events</a>
+  </div>
+</div>
+</div>
+{% endblock %}

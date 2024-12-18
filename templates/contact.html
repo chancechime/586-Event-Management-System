@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Event Management System - Contact Information</title>
-    {% include 'head.html' %}
-  </head>
-  <body>
-    <header>
-      <h1>Welcome to the Contact Page</h1>
-      {% include 'navbar.html' %}
-    </header>
-  </body>
-  <footer>
-    {% include 'footer.html' %}
-  </footer>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<main class="d-flex justify-content-center align-items-center min-vh-100 bg-light">
+  <div class="card shadow-lg p-4 border-0 rounded" style="width: 400px;">
+      <h3 class="text-center mb-4 text-primary">Contact Information</h3>
+      <p class="text-muted">For any inquiries, please contact us at:</p>
+      <p><strong>Email:</strong> eventmanagementsystem@ticket.com</p>
+      <p><strong>Phone:</strong> (626) 446-9944</p>
+      <p><strong>Address:</strong> 612 W Duarte Rd, Arcadia, CA 91007</p>
+      <p><strong>Hours:</strong> Monday - Friday, 9:00 AM - 5:00 PM</p>
+      <p class="text-center mt-3">Thank you for choosing Event Management System!</p>
+  </div>
+</main>
+{% endblock %}

@@ -1,6 +1,7 @@
 import pymssql
 
 class Database:
+    pass
     def __init__(self):
         try:
             self.connection = pymssql.connect(server='ems.cp084oyu2d47.us-west-1.rds.amazonaws.com', user='admin', password='L33?Af6K}Pxx9e!s%CabSo_w*|$q', database='ems')

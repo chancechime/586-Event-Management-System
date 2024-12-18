@@ -18,8 +18,6 @@ def login():
         flash("Invalid credentials. Please try again.", "danger")
         return redirect(url_for('login'))
 
-    
-
 def checkpw(username, password):
     # Password -> Hashed Password -> Compares with DB Hashed Password -> Returns True if match, else False
     try:
